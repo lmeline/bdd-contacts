@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS exo_contacts;
+
+SHOW DATABASE;
+
+USE exo_contacts;

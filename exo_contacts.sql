@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS telephone (
     id_contact INT,
     numero VARCHAR(50) NOT NULL,
     type BYTE, 
-    FOREIGN KEY (id_contact) REFERENCES  contacts(id)
+    FOREIGN KEY (id_contact) REFERENCES contacts(id)
 );
 
 INSERT INTO telephone (id_contact, numero, type) VALUES
@@ -73,7 +73,7 @@ INSERT INTO telephone (id_contact, numero, type) VALUES
 (9,'0609876543',1),
 (10,'0623456789',2);
 
-SELECT * FROM telephone
+SELECT * FROM telephone;
 
 DROP TABLE pays;
 DROP TABLE contacts;

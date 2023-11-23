@@ -22,7 +22,7 @@ INSERT INTO pays (iso_3, nom, iso_2, nationalite) VALUES
 ('BRA','Bresil','BR','Bresiliens'),
 ('BEL','Belgique','BE','Belges');
 
-SELECT * FROM pays;
+SELECT * FROM pays ;
 
 CREATE TABLE IF NOT EXISTS contacts (
     id int PRIMARY KEY AUTO_INCREMENT,
@@ -37,8 +37,7 @@ CREATE TABLE IF NOT EXISTS contacts (
     FOREIGN KEY(pays_iso_3) REFERENCES pays (iso_3)
 );
 
-INSERT INTO contacts (nom, prenom, date_de_naissance, sexe, adresse, code_postal, ville, pays_iso_3) 
-VALUES
+INSERT INTO contacts (nom, prenom, date_de_naissance, sexe, adresse, code_postal, ville, pays_iso_3) VALUES
 
 ("Garcia", "Pierre","23-05-1998","Homme","46 rue de la licorne", '13800','Istres','FRA'),
 ('Dupont','Marie', '15-04-1985', 'Femme', '123 Rue des Roses','10115', 'Berlin','DEU'),
@@ -54,9 +53,23 @@ VALUES
 SELECT * FROM contacts ;
 
 CREATE TABLE IF NOT EXISTS telephone (
-    id int PRIMARY KEY
-    id_contact int
+    id int USIGNED PRIMARY KEY AUTO_INCREMENT,
+    id_contact INT,
     numero VARCHAR(50),
     type BYTE, 
-    
-)
+    FOREIGN KEY (id_contact) REFERENCES  contacts(id)
+);
+
+INSERT INTO telephone (id_contact, numero, type) VALUES
+(1,'0650123456',1),
+(2,'0670891234',2),
+(3,'0645678901',1),
+(4,'0665432109',2),
+(5,'0698765432',1),
+(6,'0632109876',2),
+(7,'0687654321',1),
+(8,'0612345678',2),
+(9,'0609876543',1),
+(10,'0623456789',2);
+
+SELECT * FROM telephone
